@@ -21,7 +21,7 @@ app.use(cors({
 }));
 app.use(express.json());
 app.use(session({
-  secret: process.env.SESSION_SECRET,
+  secret: process.env.SESSION_SECRET || some_random_strings,
   resave: false,
   saveUninitialized: false,
   cookie: {
@@ -34,7 +34,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Connect to MongoDB 
-mongoose.connect(process.env.MONGODB_URI, {
+mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://aryansharma21:CheckMate123@cluster0.ufwqm.mongodb.net/CheckMate?retryWrites=true&w=majority", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
