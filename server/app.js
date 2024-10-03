@@ -12,7 +12,12 @@ const app = express();
 const PORT = 5000; // Hardcoded PORT
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:3000', // Replace with your frontend URL
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
   // origin: '*', 
   // credentials: true,
   // methods: ['GET', 'POST', 'PUT', 'DELETE'],
