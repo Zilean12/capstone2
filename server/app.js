@@ -12,7 +12,7 @@ const app = express();
 const PORT = 5000; // Hardcoded PORT
 
 // Middleware
-app.use(cors) 
+app.use(cors());
   // origin: '*', 
   // credentials: true,
   // methods: ['GET', 'POST', 'PUT', 'DELETE'],
