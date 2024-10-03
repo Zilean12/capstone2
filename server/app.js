@@ -12,12 +12,11 @@ const app = express();
 const PORT = 5000; // Hardcoded PORT
 
 // Middleware
-app.use(cors({ 
-  origin: '*', 
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization']
-}));
+app.use(cors) 
+  // origin: '*', 
+  // credentials: true,
+  // methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  // allowedHeaders: ['Content-Type', 'Authorization'];
 app.use(express.json());
 app.use(session({
   secret: 'some_random_strings', // Hardcoded secret
