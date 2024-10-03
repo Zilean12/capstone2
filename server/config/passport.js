@@ -13,8 +13,8 @@ passport.deserializeUser((id, done) => {
 });
 
 passport.use(new GoogleStrategy({
-  clientID: process.env.GOOGLE_CLIENT_ID || 375956903024-bcs683urro6q9enqfq858n3r7r57djql.apps.googleusercontent.com,
-  clientSecret: process.env.GOOGLE_CLIENT_SECRET || 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,
+  clientID: '375956903024-bcs683urro6q9enqfq858n3r7r57djql.apps.googleusercontent.com', // Hardcoded client ID
+  clientSecret: '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', // Hardcoded client secret
   callbackURL: '/auth/google/callback'
 },
 async (accessToken, refreshToken, profile, done) => {
