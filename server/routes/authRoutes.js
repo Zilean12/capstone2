@@ -1,11 +1,11 @@
-// /routes/authRoutes.js
-
 const express = require('express');
 const passport = require('passport');
 const router = express.Router();
 
+// Google authentication route
 router.get('/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
 
+// Google authentication callback
 router.get('/google/callback',
   passport.authenticate('google', { failureRedirect: '/login' }),
   (req, res) => {
@@ -13,6 +13,7 @@ router.get('/google/callback',
   }
 );
 
+// Logout route
 router.get('/logout', (req, res) => {
   req.logout((err) => {
     if (err) {
@@ -26,6 +27,15 @@ router.get('/logout', (req, res) => {
       res.status(200).json({ message: 'Logged out successfully' });
     });
   });
+});
+
+// Login status route
+router.get('/status', (req, res) => {
+  if (req.isAuthenticated()) {
+    res.json({ loggedIn: true });
+  } else {
+    res.json({ loggedIn: false });
+  }
 });
 
 module.exports = router;
